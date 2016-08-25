@@ -1,6 +1,14 @@
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const Promise = require('bluebird');
+
+const cassandra = require('cassandra-driver');
+
+// Connect to the cluster
+const client = Promise.promisifyAll(new cassandra.Client(
+  { contactPoints: ['127.0.0.1'], keyspace: 'fabula' }
+));
 
 app.set('view engine', 'ejs');
 
@@ -11,9 +19,17 @@ app.get('/', (req, res) => {
 
 io.on('connection', socket => {
   console.log('a user connected');
-  socket.on('chat message', msg => {
-    console.log('message: ' + msg);
-    io.emit('chat message', msg);
+  socket.on('chat message', data => {
+    console.log('username', data.username, 'message', data.message);
+    data.timestamp = Date.now();
+    const query = 'INSERT INTO messages (username, message, timestamp) VALUES (?, ?, ?)';
+    const params = [data.username, data.message, data.timestamp];
+
+    client.executeAsync(query, params, { prepare: true })
+    .catch(err => {
+      console.error(err);
+    });
+    io.emit('chat message', data);
   });
   socket.on('disconnect', () => {
     console.log('user disconnected');
