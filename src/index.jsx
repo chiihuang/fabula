@@ -10,6 +10,8 @@ var MessageBox = require('./MessageBox.jsx');
 import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 import AppBar from 'material-ui/AppBar';
 
 // Needed for onTouchTap
@@ -33,6 +35,10 @@ var App = React.createClass({
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={style}>
           <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+          <Drawer open="true">
+            <MenuItem>Menu Item</MenuItem>
+            <MenuItem>Menu Item 2</MenuItem>
+          </Drawer>
           <LoginBox/>
           <MessageBox/>
         </div>
