@@ -1,5 +1,8 @@
 'use strict'
 
+// init socket ASAP
+var socket = require('./socket');
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 var LoginBox = require('./LoginBox.jsx');

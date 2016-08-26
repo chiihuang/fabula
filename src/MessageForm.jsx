@@ -1,5 +1,7 @@
 'use strict';
 
+var socket = require('./socket');
+
 var React = require('react');
 
 var MessageForm = React.createClass({

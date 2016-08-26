@@ -1,3 +1,12 @@
+######
+Project Specific
+######
+public/scripts/*bundle.js
+
+######
+from GitHub
+######
+
 # Logs
 logs
 *.log
