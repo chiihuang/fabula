@@ -20,23 +20,23 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
+    <!-- <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    </form> -->
+    <div id="chatroom"></div>
+    <div id="login-box"></div>
+    <div id="message-form"></div>
     <script src="/socket.io/socket.io.js"></script>
+
     <!-- <script src="http://code.jquery.com/jquery-1.11.1.js"></script> -->
     <script>
       var socket = io();
       var username = (Math.random() * 1000).toFixed(4);
-      $('form').submit(function(){
-        var msg = $('#m').val();
-        socket.emit('chat message', { username: username, message: msg });
-        $('#m').val('');
-        return false;
-      });
+
       socket.on('chat message', function(data){
         $('#messages').append($('<li>').text(data.username + ': ' + data.message + ' , at ' + Date(data.timestamp).toString()));
       });
     </script>
+    <script src="scripts/bundle.js"></script>
   </body>
 </html>
