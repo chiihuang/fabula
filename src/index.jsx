@@ -1,8 +1,8 @@
 'use strict'
 
-// var React = require('react')
+var React = require('react');
 var ReactDOM = require('react-dom');
-var LoginBox = require('./chatroom.jsx');
+var LoginBox = require('./LoginBox.jsx');
 var MessageForm = require('./MessageForm.jsx');
 
 // React.renderComponent(<Hello />, document.getElementById('content'))
