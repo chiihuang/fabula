@@ -6,10 +6,11 @@ var socket = require('./socket');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var LoginBox = require('./LoginBox.jsx');
-var MessageForm = require('./MessageForm.jsx');
+var MessageBox = require('./MessageBox.jsx');
 import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
 
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -21,13 +22,19 @@ var muiTheme = getMuiTheme({
   },
 });
 
+var style = {
+  textAlign: 'center',
+  paddingTop: 20,
+};
+
 var App = React.createClass({
   render: function(){
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <LoginBox></LoginBox>
-          <MessageForm></MessageForm>
+        <div style={style}>
+          <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+          <LoginBox/>
+          <MessageBox/>
         </div>
       </MuiThemeProvider>
     );

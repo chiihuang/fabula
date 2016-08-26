@@ -6,6 +6,7 @@ var React = require('react');
 
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import ContentSend from 'material-ui/svg-icons/content/send';
 
 const style = {
   margin: 12,
@@ -13,7 +14,7 @@ const style = {
 
 var MessageForm = React.createClass({
   getInitialState: function() {
-    return { text: '' };
+    return { text: '', username: 'user-' + Math.round(Math.random() * 1000)};
   },
   handleTextChange: function(e) {
     this.setState({text: e.target.value});
@@ -21,7 +22,7 @@ var MessageForm = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
     var msg = this.state.text.trim();
-    socket.emit('chat message', { username: 'username', message: msg });
+    socket.emit('chat message', { username: this.state.username, message: msg });
     this.messageInputRef.value = '';
     return false;
   },
@@ -29,7 +30,7 @@ var MessageForm = React.createClass({
     return (
       <form action="" onSubmit={this.handleSubmit}>
         <TextField hintText="Say hello!" onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
-        <RaisedButton label="Send" primary={true} style={style}/>
+        <RaisedButton label="Send" primary={true} style={style} icon={<ContentSend />}/>
       </form> 
     )
   }
