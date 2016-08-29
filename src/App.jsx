@@ -30,7 +30,8 @@ var App = React.createClass({
           </NavDrawer>
           <Panel>
               <AppBar>
-                <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>2016 Fall FSE Chat Room
+                <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>
+                <h1>2016 Fall FSE Chat Room</h1>
               </AppBar>
               <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', }}>
                 <LoginBox/>
