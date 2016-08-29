@@ -28,7 +28,7 @@ var MessageForm = React.createClass({
   render: function() {
     return (
       <form action="" onSubmit={this.handleSubmit}>
-        <Input label='Message' name='message' onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
+        <Input label='Type your message' name='message' onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
         <Button label="Send" icon="send" raised/>
       </form> 
     )
