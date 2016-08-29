@@ -19,7 +19,7 @@ var App = React.createClass({
         // <Panel scrollY={true}>
         <div className={style.app}>
           <AppBar fixed flat>2016 Fall FSE Chat Room</AppBar>
-          <div  style={{ 'min-width': '480px', 'max-width': '600px', margin: 'auto', }}>
+          <div  style={{ 'minWidth': '480px', 'maxWidth': '600px', margin: 'auto', }}>
             <LoginBox/>
             <MessageBox/>
           </div>

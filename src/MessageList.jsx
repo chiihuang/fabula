@@ -3,6 +3,7 @@
 var socket = require('./socket');
 
 var React = require('react');
+var path = require('path');
 
 import { List, ListItem, ListSubHeader, ListDivider, ListCheckbox } from 'react-toolbox/lib/list';
 import Avatar from 'react-toolbox/lib/avatar';
@@ -16,6 +17,15 @@ var MessageList = React.createClass({
     socket.on('chat message', data => {
       this.setState({chats: this.state.chats.concat([data])});
     });
+
+    // pre-load history
+
+    $.getJSON({
+      url: document.URL + 'api/history',
+      success: data => {
+        this.setState({chats: data});
+      }
+    });
     return { chats: [] };
   },
   render: function() {
@@ -24,17 +34,14 @@ var MessageList = React.createClass({
       let chat = this.state.chats[i];
       listItems.push(
         <ListItem
+          key={i}
           caption={chat.username}
-          legend={
-            <p>
-              {(() => chat.message + ' , at ' +
+          legend={chat.message + ' , at ' +
                 Date(chat.timestamp).toString()
-              )()}
-            </p>
           }
           rightIcon="message"
         >
-        <Avatar title={chat.username[0]}/>
+        <Avatar title={(chat.username || 'Anonymous')[0]}/>
         </ListItem>
       );
     }
