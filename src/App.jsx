@@ -32,12 +32,11 @@ var App = React.createClass({
               <AppBar>
                 <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>2016 Fall FSE Chat Room
               </AppBar>
-              <div  style={{ 'minWidth': '480px', 'maxWidth': '600px', margin: 'auto', }}>
+              <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', }}>
                 <LoginBox/>
                 <MessageBox/>
               </div>
           </Panel>
-        
       </Layout>
     );
   }

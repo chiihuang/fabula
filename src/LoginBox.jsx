@@ -11,9 +11,10 @@ var user = require('./user');
 var LoginBox = React.createClass({
   getInitialState: function() {
     user.on('logout', () => { this.setState({active: true}); });
-    return { active: true, actions: [{ label: "Login", onClick: this.handleToggle }]};
+    return { active: true, actions: [{ label: "Login", onClick: this.handleSubmit }]};
   },
-  handleToggle: function(){
+  handleSubmit: function(){
+    if (this.state.username.length <= 0) return;
     user.username = this.state.username;
     this.setState({active: !this.state.active});
   },
