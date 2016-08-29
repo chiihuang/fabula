@@ -1,3 +1,15 @@
+######
+Project Specific
+######
+public/scripts/*bundle.js
+public/scripts/*bundle.css
+*.sublime-project
+*.sublime-workspace
+
+######
+from GitHub
+######
+
 # Logs
 logs
 *.log
