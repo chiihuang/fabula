@@ -10,6 +10,7 @@ var user = require('./user');
 
 var LoginBox = React.createClass({
   getInitialState: function() {
+    user.on('logout', () => { this.setState({active: true}); });
     return { active: true, actions: [{ label: "Login", onClick: this.handleToggle }]};
   },
   handleToggle: function(){
@@ -25,8 +26,6 @@ var LoginBox = React.createClass({
         title='Login'
         active={this.state.active}
         actions={this.state.actions}
-        onEscKeyDown={this.handleToggle}
-        onOverlayClick={this.handleToggle}
       >
         <p>Welcome to FSE chat room!</p>
         <Input label='Name' name='message' onChange={this.handleTextChange} required maxLength={16 }/>
