@@ -41,7 +41,7 @@ var MessageList = React.createClass({
           }
           rightIcon="message"
         >
-        <Avatar title={chat.username[0]}/>
+        <Avatar title={(chat.username || 'Anonymous')[0]}/>
         </ListItem>
       );
     }
