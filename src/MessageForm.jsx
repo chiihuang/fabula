@@ -4,10 +4,8 @@ var socket = require('./socket');
 
 var React = require('react');
 
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import ContentSend from 'material-ui/svg-icons/content/send';
-import { Button } from 'react-toolbox/lib/button';
+import Input from 'react-toolbox/lib/input';
+import {Button, IconButton} from 'react-toolbox/lib/button';
 
 const style = {
   margin: 12,
@@ -30,8 +28,8 @@ var MessageForm = React.createClass({
   render: function() {
     return (
       <form action="" onSubmit={this.handleSubmit}>
-        <TextField hintText="Say hello!" onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
-        <Button label="Send"/>
+        <Input label='Message' name='message' onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
+        <Button label="Send" icon="send" raised/>
       </form> 
     )
   }

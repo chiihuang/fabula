@@ -4,29 +4,23 @@ var socket = require('./socket');
 
 var React = require('react');
 
-import Paper from 'material-ui/Paper';
+import { Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox';
 
 var MessageList = require('./MessageList.jsx');
 var MessageForm = require('./MessageForm.jsx');
 
-const style = {
-  // height: '100%',
-  // width: '100%',
-  // margin: 20,
-  // textAlign: 'center',
-  // display: 'inline-block',
-  display: 'flex',
-  flexWrap: 'wrap',
-  padding: 20,
-  justifyContent: 'space-around',
-};
-
 var MessageBox = React.createClass({
   render: () => (
-    <Paper style={style} zDepth={1}>
-      <MessageList/>
-      <MessageForm/>
-    </Paper>
+    <Layout>
+        <Panel>
+            <div style={{ flex: 1, overflowY: 'auto', padding: '1.8rem' }}>
+                <h1>Main Content</h1>
+                <p>Main content goes here.</p>
+              <MessageList/>
+              <MessageForm/>
+            </div>
+        </Panel>
+    </Layout>
   )
 });
 

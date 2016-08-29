@@ -34,11 +34,6 @@ var App = React.createClass({
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={style}>
-          <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more"/>
-          <Drawer open="true">
-            <MenuItem>Menu Item</MenuItem>
-            <MenuItem>Menu Item 2</MenuItem>
-          </Drawer>
           <LoginBox/>
           <MessageBox/>
         </div>
