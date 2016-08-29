@@ -5,6 +5,7 @@ var React = require('react');
 import {Button} from 'react-toolbox';
 
 var user = require('./user');
+var style = require('./style.scss');
 
 var TabsOnBar = React.createClass({
   getInitialState: function() {

@@ -9,24 +9,36 @@ var LoginBox = require('./LoginBox.jsx');
 var MessageBox = require('./MessageBox.jsx');
 var TabsOnBar = require('./TabsOnBar.jsx');
 
-import { Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox';
+import { Layout, NavDrawer, Panel, Sidebar, IconButton } from 'react-toolbox';
 import AppBar from 'react-toolbox/lib/app_bar';
 import style from './style';
 
 var App = React.createClass({
+  getInitialState: function() {
+    return { drawerActive: false };
+  },
+  toggleDrawerActive: function(){
+    this.setState({ drawerActive: !this.state.drawerActive });
+  },
   render: function(){
     return (
-      // <Layout>
-        // <Panel scrollY={true}>
-        <div className={style.app}>
-          <AppBar fixed flat>2016 Fall FSE Chat Room <TabsOnBar/></AppBar>
-          <div  style={{ 'minWidth': '480px', 'maxWidth': '600px', margin: 'auto', }}>
-            <LoginBox/>
-            <MessageBox/>
-          </div>
-        </div>
-        // </Panel>
-      // </Layout>
+      <Layout>
+          <NavDrawer active={this.state.drawerActive}
+            permanentAt='xxxl'
+            onOverlayClick={ this.toggleDrawerActive }>
+            <TabsOnBar/>
+          </NavDrawer>
+          <Panel>
+              <AppBar>
+                <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>2016 Fall FSE Chat Room
+              </AppBar>
+              <div  style={{ 'minWidth': '480px', 'maxWidth': '600px', margin: 'auto', }}>
+                <LoginBox/>
+                <MessageBox/>
+              </div>
+          </Panel>
+        
+      </Layout>
     );
   }
 });
