@@ -11,7 +11,7 @@ var user = require('./user');;
 
 var MessageForm = React.createClass({
   getInitialState: function() {
-    return { text: '', username: 'user-' + Math.round(Math.random() * 1000)};
+    return { text: '' };
   },
   handleTextChange: function(value) {
     this.setState({text: value});

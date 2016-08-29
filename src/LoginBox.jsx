@@ -10,9 +10,11 @@ var user = require('./user');
 
 var LoginBox = React.createClass({
   getInitialState: function() {
-    return { active: true, actions: [{ label: "Login", onClick: this.handleToggle }]};
+    user.on('logout', () => { this.setState({active: true}); });
+    return { active: true, actions: [{ label: "Login", onClick: this.handleSubmit }]};
   },
-  handleToggle: function(){
+  handleSubmit: function(){
+    if (this.state.username.length <= 0) return;
     user.username = this.state.username;
     this.setState({active: !this.state.active});
   },
@@ -25,8 +27,6 @@ var LoginBox = React.createClass({
         title='Login'
         active={this.state.active}
         actions={this.state.actions}
-        onEscKeyDown={this.handleToggle}
-        onOverlayClick={this.handleToggle}
       >
         <p>Welcome to FSE chat room!</p>
         <Input label='Name' name='message' onChange={this.handleTextChange} required maxLength={16 }/>
