@@ -10,19 +10,22 @@ var MessageBox = require('./MessageBox.jsx');
 
 import { Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox';
 import AppBar from 'react-toolbox/lib/app_bar';
+import style from './style';
 
 var App = React.createClass({
   render: function(){
     return (
-      <Layout>
-        <Panel scrollY={true}>
+      // <Layout>
+        // <Panel scrollY={true}>
+        <div className={style.app}>
           <AppBar fixed flat>2016 Fall FSE Chat Room</AppBar>
           <div  style={{ 'min-width': '480px', 'max-width': '600px', margin: 'auto', }}>
             <LoginBox/>
             <MessageBox/>
           </div>
-        </Panel>
-      </Layout>
+          </div>
+        // </Panel>
+      // </Layout>
     );
   }
 });
