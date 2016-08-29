@@ -4,7 +4,7 @@
   "description": "fabula",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --module-bind 'js=babel-loader'",
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
   },
@@ -15,6 +15,7 @@
   "author": "Chi-I Huang <jasson15@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^6.4.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -25,14 +26,24 @@
     "babel-preset-stage-0": "^6.5.0",
     "bluebird": "^3.4.3",
     "cassandra-driver": "^3.1.1",
+    "css-loader": "^0.24.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "material-ui": "^0.15.4",
+    "node-sass": "^3.8.0",
+    "normalize.css": "^4.2.0",
+    "postcss-loader": "^0.11.0",
     "react": "^15.3.1",
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-addons-update": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-tap-event-plugin": "^1.0.0",
+    "react-toolbox": "^1.1.2",
+    "sass-loader": "^4.0.0",
     "socket.io": "^1.4.8",
     "socket.io-client": "^1.4.8",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },
   "engines": {

@@ -7,6 +7,7 @@ var React = require('react');
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ContentSend from 'material-ui/svg-icons/content/send';
+import { Button } from 'react-toolbox/lib/button';
 
 const style = {
   margin: 12,
@@ -30,7 +31,7 @@ var MessageForm = React.createClass({
     return (
       <form action="" onSubmit={this.handleSubmit}>
         <TextField hintText="Say hello!" onChange={this.handleTextChange} id="m" autoComplete="off" ref={(ref) => this.messageInputRef = ref}/>
-        <RaisedButton label="Send" primary={true} style={style} icon={<ContentSend />}/>
+        <Button label="Send"/>
       </form> 
     )
   }
