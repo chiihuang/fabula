@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     // 'webpack-hot-middleware/client',
-    './src/index.jsx',
+    './src/app.jsx',
   ],
   output: {
     path: path.join(__dirname, 'public/scripts'),

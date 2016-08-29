@@ -7,10 +7,6 @@ var React = require('react');
 import Input from 'react-toolbox/lib/input';
 import {Button, IconButton} from 'react-toolbox/lib/button';
 
-const style = {
-  margin: 12,
-};
-
 var MessageForm = React.createClass({
   getInitialState: function() {
     return { text: '', username: 'user-' + Math.round(Math.random() * 1000)};
