@@ -9,6 +9,7 @@ var LoginBox = require('./LoginBox.jsx');
 var MessageBox = require('./MessageBox.jsx');
 var TabsOnBar = require('./TabsOnBar.jsx');
 
+import 'react-toolbox/lib/commons.scss';
 import { Layout, NavDrawer, Panel, Sidebar, IconButton } from 'react-toolbox';
 import AppBar from 'react-toolbox/lib/app_bar';
 import style from './style';
@@ -31,7 +32,7 @@ var App = React.createClass({
           <Panel>
               <AppBar>
                 <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>
-                <h1>2016 Fall FSE Chat Room</h1>
+                2016 Fall FSE Chat Room
               </AppBar>
               <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', }}>
                 <LoginBox/>
