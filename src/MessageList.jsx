@@ -7,6 +7,7 @@ var path = require('path');
 
 import { List, ListItem, ListSubHeader, ListDivider, ListCheckbox } from 'react-toolbox/lib/list';
 import Avatar from 'react-toolbox/lib/avatar';
+import Chip from 'react-toolbox/lib/chip';
 
 const style = {
   margin: 12,
@@ -34,14 +35,20 @@ var MessageList = React.createClass({
       let chat = this.state.chats[i];
       listItems.push(
         <ListItem
+          avatar={
+            <Avatar title={(chat.username || 'Anonymous')[0]}/>
+          }
           key={i}
-          caption={chat.username}
-          legend={chat.message + ' , at ' +
-                Date(chat.timestamp).toString()
+          itemContent={
+            <div style={{flex: 1}}>
+              <strong>{chat.username}</strong><br/>{chat.message}
+              <Chip style={{float: 'right'}}>
+                <small>{Date(chat.timestamp).toString()}</small>
+              </Chip>
+            </div>
           }
           rightIcon="message"
         >
-        <Avatar title={(chat.username || 'Anonymous')[0]}/>
         </ListItem>
       );
     }
