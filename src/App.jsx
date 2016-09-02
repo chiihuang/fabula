@@ -7,7 +7,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var LoginBox = require('./LoginBox.jsx');
 var MessageBox = require('./MessageBox.jsx');
-var TabsOnBar = require('./TabsOnBar.jsx');
+var LogoutButton = require('./LogoutButton.jsx');
 var NewUserNotification = require('./NewUserNotification.jsx');
 
 import 'react-toolbox/lib/commons.scss';
@@ -28,7 +28,7 @@ var App = React.createClass({
           <NavDrawer active={this.state.drawerActive}
             permanentAt='xxxl'
             onOverlayClick={ this.toggleDrawerActive }>
-            <TabsOnBar/>
+            <LogoutButton/>
           </NavDrawer>
           <Panel>
               <AppBar>

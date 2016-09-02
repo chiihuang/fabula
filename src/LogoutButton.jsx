@@ -7,7 +7,7 @@ import {Button} from 'react-toolbox';
 var user = require('./user');
 var style = require('./style.scss');
 
-var TabsOnBar = React.createClass({
+var LogoutButton = React.createClass({
   getInitialState: function() {
     return { state: 1 };
   },
@@ -23,4 +23,4 @@ var TabsOnBar = React.createClass({
   }
 });
 
-module.exports = TabsOnBar;
+module.exports = LogoutButton;
