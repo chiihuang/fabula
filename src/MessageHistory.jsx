@@ -13,10 +13,14 @@ const style = {
   margin: 12,
 };
 
-var MessageList = React.createClass({
+var MessageHistory = React.createClass({
   getInitialState: function() {
-    socket.on('chat message', data => {
-      this.setState({chats: this.state.chats.concat([data])});
+    // pre-load history
+    $.getJSON({
+      url: document.URL + 'api/history',
+      success: data => {
+        this.setState({chats: data});
+      }
     });
     return { chats: [] };
   },
@@ -52,4 +56,4 @@ var MessageList = React.createClass({
   }
 });
 
-module.exports = MessageList;
+module.exports = MessageHistory;
