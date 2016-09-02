@@ -28,14 +28,14 @@ var App = React.createClass({
           <NavDrawer active={this.state.drawerActive}
             permanentAt='xxxl'
             onOverlayClick={ this.toggleDrawerActive }>
-            <LogoutButton/>
+            <LogoutButton style={{ marginTop: '80px' }}/>
           </NavDrawer>
           <Panel>
-              <AppBar>
+              <AppBar fixed>
                 <IconButton icon='menu' inverse={ true } onClick={ this.toggleDrawerActive }/>
                 2016 Fall FSE Chat Room
               </AppBar>
-              <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', }}>
+              <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', marginTop: '80px'}}>
                 <LoginBox/>
                 <MessageBox/>
                 <NewUserNotification />

@@ -18,7 +18,7 @@ var LogoutButton = React.createClass({
 
   render: function() {
     return (
-      <Button label='Logout' onMouseUp={this.handleLogout}></Button>
+      <Button {...this.props} label='Logout' onMouseUp={this.handleLogout}></Button>
     );
   }
 });
