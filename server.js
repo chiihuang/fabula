@@ -12,6 +12,10 @@ app.use(routes);
 
 io.on('connection', socket => {
   console.log('a user connected');
+  socket.on('new-user', username => {
+    console.log('new-user', username);
+    socket.broadcast.emit('new-user', username);
+  });
   socket.on('chat message', data => {
     console.log('username', data.username, 'message', data.message);
     data.timestamp = Date.now();

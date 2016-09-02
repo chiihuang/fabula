@@ -8,6 +8,7 @@ var ReactDOM = require('react-dom');
 var LoginBox = require('./LoginBox.jsx');
 var MessageBox = require('./MessageBox.jsx');
 var TabsOnBar = require('./TabsOnBar.jsx');
+var NewUserNotification = require('./NewUserNotification.jsx');
 
 import 'react-toolbox/lib/commons.scss';
 import { Layout, NavDrawer, Panel, Sidebar, IconButton } from 'react-toolbox';
@@ -37,6 +38,7 @@ var App = React.createClass({
               <div  style={{ 'minWidth': '800px', 'maxWidth': '800px', margin: 'auto', }}>
                 <LoginBox/>
                 <MessageBox/>
+                <NewUserNotification />
               </div>
           </Panel>
       </Layout>

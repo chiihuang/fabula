@@ -14,7 +14,6 @@ var TabsOnBar = React.createClass({
 
   handleLogout: function() {
     user.emit('logout');
-    this.setState({index});
   },
 
   render: function() {

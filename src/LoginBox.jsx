@@ -5,6 +5,8 @@ import Dialog from 'react-toolbox/lib/dialog';
 import Input from 'react-toolbox/lib/input';
 import {Button, IconButton} from 'react-toolbox/lib/button';
 
+const socket = require('./socket');
+
 // global user profile
 var user = require('./user');
 
@@ -16,6 +18,7 @@ var LoginBox = React.createClass({
   handleSubmit: function(){
     if (this.state.username.length <= 0) return;
     user.username = this.state.username;
+    socket.emit('new-user', user.username);
     this.setState({active: !this.state.active});
   },
   handleTextChange: function(value){
