@@ -38,7 +38,7 @@ var MessageHistory = React.createClass({
             <div style={{flex: 1}}>
               <strong>{chat.username}</strong><br/>{chat.message}
               <Chip style={{float: 'right'}}>
-                <small>{Date(chat.timestamp).toString()}</small>
+                <small>{(new Date(chat.timestamp)).toLocaleString()}</small>
               </Chip>
             </div>
           }

@@ -14,7 +14,7 @@ var MessageBox = React.createClass({
       <MessageHistory/>
       <div style={{ justifyContent:'center', display: 'flex'}}>
         <Chip>
-          <em>previous chats</em>
+          ↑ <em>previous chats</em> ↑
         </Chip>
       </div>
       <MessageList/>
